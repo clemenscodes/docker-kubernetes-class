@@ -8,6 +8,6 @@ docker run -d \
     --name nextcloud \
     -p 80:80 \
     -p 443:443 \
-    -v nextcloud:/var/www/html \
+    -v /var/lib/docker/volumes/nextcloud:/var/www/html \
     --link mariadb:gcc \
     nextcloud:gcc
