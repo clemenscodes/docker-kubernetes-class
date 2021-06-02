@@ -1,0 +1,5 @@
+FROM mariadb
+
+VOLUME db
+
+EXPOSE 3306
