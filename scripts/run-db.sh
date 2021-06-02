@@ -1,9 +1,9 @@
 #!/bin/sh
 
-./build-db.sh
+scripts/build-db.sh
 
 docker run -d \
-    --env-file mariadb.env \
+    --env-file env/mariadb.env \
     -p 3306:3306 \
     -v db:/var/lib/mysql \
     --name mariadb \
