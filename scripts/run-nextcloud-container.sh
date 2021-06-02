@@ -1,10 +1,10 @@
 #!/bin/sh
 
-./build-nextcloud.sh
+scripts/build-nextcloud.sh
 
 docker run -d \
-    --env-file mariadb.env \
-    --env-file nextcloud.env \
+    --env-file env/mariadb.env \
+    --env-file env/nextcloud.env \
     --name nextcloud \
     -p 80:80 \
     -p 443:443 \
