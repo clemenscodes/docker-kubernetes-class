@@ -6,6 +6,13 @@
 
 Gruppe 6: Clemens Horn, Niklas Schimmack, Julian Freundt
 
+# Inhaltsverzeichnis
+1. [Voraussetzungen](#voraussetzungen)
+2. [Benutzung](#benutzung)
+3. [Erläuterung MariaDB](#erläuterung-mariadb)
+4. [Erläuterung Nextcloud](#erläuterung-nextcloud)
+5. [Quellen](#quellen)
+
 ## Voraussetzungen
 
 Unix-artiges Betriebssystem auf dem Docker installiert ist sowie ggf. Administrationsrechte.
