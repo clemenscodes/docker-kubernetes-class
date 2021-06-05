@@ -135,10 +135,10 @@ Das Skript `scripts/start.sh` führt alle erläuterten Befehle aus und stellt di
 ## Literaturverzeichnis
 mariadb (2021): Docker Offical Images, in: docker hub. <https://hub.docker.com/_/mariadb> (05.06.2021)
 nextcloud (2021): Docker Offical Images, in: docker hub. <https://hub.docker.com/_/nextcloud> (05.06.2021)
-3. <https://docs.docker.com/get-started07_multi_container/>
-docker (2021): Persist the DB, in: docker docs. <https://docs.docker.com/get-started/05_persisting_data/> (05.06.2021)
-docker (2021a): docker build, in: docker docs. <https://docs.docker.com/engine/reference/commandline/build/> (05.06.2021)
-docker (2021b): docker run, in: docker docs. <https://docs.docker.com/engine/reference/commandline/run/> (05.06.2021)
+docker (2021): Multi container apps, in: docker docs. <https://docs.docker.com/get-started07_multi_container/> (05.06.2021)
+docker (2021a): Persist the DB, in: docker docs. <https://docs.docker.com/get-started/05_persisting_data/> (05.06.2021)
+docker (2021b): docker build, in: docker docs. <https://docs.docker.com/engine/reference/commandline/build/> (05.06.2021)
+docker (2021c): docker run, in: docker docs. <https://docs.docker.com/engine/reference/commandline/run/> (05.06.2021)
 
 ## Abbildungsverzeichnis
 Abb.1: Docker Logo. <https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg> 1
