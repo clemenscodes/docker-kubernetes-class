@@ -1,6 +1,6 @@
 # Docker Nextcloud MariaDB
 
-[![Docker Logo](images/1920px-Docker_(container_engine)_logo.svg.png "Docker Logo")](https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg)
+[![Docker Logo](images/1920px-Docker_(container_engine)_logo.svg.png "Docker Logo")](https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg) Abb.1
 
 ## Dokumentation für die bewertete Hausübung 2
 
@@ -129,7 +129,7 @@ Die Administrationsanmeldedaten können in der Datei `env/nextcloud.env` entspre
 
 Das Skript `scripts/start.sh` führt alle erläuterten Befehle aus und stellt die Nextcloud bereit.
 
-![Nextcloud](images/nextcloud.png "Nextcloud Anmeldebildschirm")
+![Nextcloud](images/nextcloud.png "Nextcloud Anmeldebildschirm")Abb. 2
 
 # Quellen
 ## Literaturverzeichnis
@@ -141,4 +141,5 @@ docker (2021b): docker build, in: docker docs. <https://docs.docker.com/engine/r
 docker (2021c): docker run, in: docker docs. <https://docs.docker.com/engine/reference/commandline/run/> (05.06.2021)<br>
 
 ## Abbildungsverzeichnis
-Abb.1: Docker Logo. <https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg> 1<br>
+Abb.1: Docker Logo. <https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg> .1<br>
+Abb.2: Nextcloud Anmeldebildschirm. eigene Darstellung. 3 
