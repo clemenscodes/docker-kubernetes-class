@@ -1,0 +1,29 @@
+version: "3"
+services:
+    mariadb:
+        image: mariadb
+        container_name: mariadb-gcc
+        restart: always
+        volumes: 
+            - mariadb:/var/lib/mysql
+        ports: 
+            - "3306:3306"
+        env_file:
+            - env/mariadb.env
+    nextcloud:
+        image: nextcloud
+        container_name: nextcloud-gcc
+        restart: always
+        volumes: 
+            - nextcloud:/var/www/html 
+        links:
+            - mariadb
+        ports:
+            - "80:80"
+            - "443:443"
+        env_file: 
+            - env/nextcloud.env
+            - env/mariadb.env
+volumes: 
+    mariadb:
+    nextcloud:
