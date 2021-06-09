@@ -14,5 +14,3 @@ spec:
       targetPort: 443
   selector:
     service: nextcloud
-status:
-  loadBalancer: {}
