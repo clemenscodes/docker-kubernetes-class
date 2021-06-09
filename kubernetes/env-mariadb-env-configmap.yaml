@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  MYSQL_DATABASE: nextcloud-db
+  MYSQL_HOST: mariadb
+  MYSQL_PASSWORD: my-nextcloud-db-pw
+  MYSQL_ROOT_PASSWORD: my-secret-pw
+  MYSQL_USER: nextcloud
+metadata:
+  name: mariadb-env
