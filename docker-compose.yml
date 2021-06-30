@@ -1,6 +1,6 @@
 # Nextcloud mit MariaDB
 
-# Zugriff ueber http://localhost:80
+# Zugriff ueber http://localhost:80 oder http://localhost:443
 
 # Nextcloud User: admin
 # Nextcloud Passwort: nextcloud-admin-password
