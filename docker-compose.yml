@@ -1,0 +1,41 @@
+# Nextcloud mit MariaDB
+
+# Zugriff ueber http://localhost:80
+
+# Nextcloud User: admin
+# Nextcloud Passwort: nextcloud-admin-password
+
+# Datenbank Name: nextcloud-db
+# Datenbank User: nextcloud
+# Datenbank User Passwort: my-nextcloud-db-pw
+# Datenbank Host: mariadb
+
+version: "3" # Angabe der Version von docker-compose
+services: # Liste der Services die in einzelnen Containern laufen sollen
+    mariadb: # Datenbank (Service mit dem Namen mariadb)
+        image: mariadb # Oeffentliches Image der mariadb auf Dockerhub
+        container_name: mariadb-gcc # Name des Containers
+        restart: always # Sollte der mariadb Service unerwartet beendet werden startet er automatisch neu
+        volumes: 
+            - mariadb:/var/lib/mysql # Volume mit dem Namen mariadb gefolgt von dem Pfad an dem das Volume liegen soll (alle Daten die in diesem Ordner liegen werden in den Container kopiert)
+        ports: 
+            - "3306:3306" # Angabe der fuer die Datenbank verwendeten Ports
+        env_file:
+            - env/mariadb.env # Pfad zur mariadb Enviroment Datei
+    nextcloud: # Nextcloud (Service mit dem Namen nextcloud)
+        image: nextcloud # Oeffentliches Image der nextcloud auf Dockerhub
+        container_name: nextcloud-gcc
+        restart: always # Sollte der marianextcloud Service unerwartet beendet werden startet er automatisch neu
+        volumes: 
+            - nextcloud:/var/www/html # Volume mit dem Namen nextcloud gefolgt von dem Pfad an dem das Volume liegen soll (alle Daten die in diesem Ordner liegen werden in den Container kopiert)
+        links:
+            - mariadb # Ermoeglicht das die nextcloud mit dem Service namens "mariadb" kommunizieren kann
+        ports:
+            - "80:80" # Wie in Aufgabe gefragt kann die nextcloud so auf beiden Ports 80:80 und 443:443 erreicht werden
+            - "443:443"
+        env_file: 
+            - env/nextcloud.env # Pfad zur nextcloud Enviroment Datei
+            - env/mariadb.env # Pfad zur mariadb Enviroment Datei
+volumes: # Hier werden die Volumes namentlich definiert
+    mariadb:
+    nextcloud:
