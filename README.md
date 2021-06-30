@@ -1,10 +1,17 @@
 # Docker Nextcloud MariaDB
 
-[![Docker Logo](images/1920px-Docker_(container_engine)_logo.svg.png "Docker Logo")](https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg)
+[![Docker Logo](images/1920px-Docker_(container_engine)_logo.svg.png "Docker Logo")](https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg) Abb.1
 
 ## Dokumentation für die bewertete Hausübung 2
 
 Gruppe 6: Clemens Horn, Niklas Schimmack, Julian Freundt
+
+# Inhaltsverzeichnis
+1. [Voraussetzungen](#voraussetzungen)
+2. [Benutzung](#benutzung)
+3. [Erläuterung MariaDB](#erläuterung-mariadb)
+4. [Erläuterung Nextcloud](#erläuterung-nextcloud)
+5. [Quellen](#quellen)
 
 ## Voraussetzungen
 
@@ -122,14 +129,17 @@ Die Administrationsanmeldedaten können in der Datei `env/nextcloud.env` entspre
 
 Das Skript `scripts/start.sh` führt alle erläuterten Befehle aus und stellt die Nextcloud bereit.
 
-![Nextcloud](images/nextcloud.png "Nextcloud Anmeldebildschirm")
+![Nextcloud](images/nextcloud.png "Nextcloud Anmeldebildschirm")Abb. 2
 
-## Quellen
+# Quellen
+## Literaturverzeichnis
+mariadb (2021): Docker Offical Images, in: docker hub. <https://hub.docker.com/_/mariadb> (05.06.2021)<br>
+nextcloud (2021): Docker Offical Images, in: docker hub. <https://hub.docker.com/_/nextcloud> (05.06.2021)<br>
+docker (2021): Multi container apps, in: docker docs. <https://docs.docker.com/get-started07_multi_container/> (05.06.2021)<br>
+docker (2021a): Persist the DB, in: docker docs. <https://docs.docker.com/get-started/05_persisting_data/> (05.06.2021)<br>
+docker (2021b): docker build, in: docker docs. <https://docs.docker.com/engine/reference/commandline/build/> (05.06.2021)<br>
+docker (2021c): docker run, in: docker docs. <https://docs.docker.com/engine/reference/commandline/run/> (05.06.2021)<br>
 
-1. <https://hub.docker.com/_/mariadb>
-2. <https://hub.docker.com/_/nextcloud>
-3. <https://docs.docker.com/get-started07_multi_container/>
-4. <https://docs.docker.com/get-started/05_persisting_data/>
-5. <https://docs.docker.com/engine/reference/commandline/build/>
-6. <https://docs.docker.com/engine/reference/commandline/run/>
-7. <https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg>
+## Abbildungsverzeichnis
+Abb.1: Docker Logo. <https://en.wikipedia.org/wiki/Docker_(software)#/media/File:Docker_(container_engine)_logo.svg> .1<br>
+Abb.2: Nextcloud Anmeldebildschirm. eigene Darstellung. 3 

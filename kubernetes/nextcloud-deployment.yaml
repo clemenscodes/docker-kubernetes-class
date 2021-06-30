@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: nextcloud
+  name: nextcloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: nextcloud
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        service: nextcloud
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_DATABASE
+                  name: mariadb-env
+            - name: MYSQL_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_HOST
+                  name: mariadb-env
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_PASSWORD
+                  name: mariadb-env
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_ROOT_PASSWORD
+                  name: mariadb-env
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_USER
+                  name: mariadb-env
+            - name: NEXTCLOUD_TRUSTED_DOMAINS
+              valueFrom:
+                configMapKeyRef:
+                  key: NEXTCLOUD_TRUSTED_DOMAINS
+                  name: nextcloud-env
+            - name: NEXTCLOUD_ADMIN_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: NEXTCLOUD_ADMIN_PASSWORD
+                  name: nextcloud-env
+            - name: NEXTCLOUD_ADMIN_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: NEXTCLOUD_ADMIN_USER
+                  name: nextcloud-env
+          image: nextcloud
+          name: nextcloud-gcc
+          ports:
+            - containerPort: 80
+            - containerPort: 443
+          resources: 
+            limits:
+              memory: "128Mi" 
+              cpu: "500m"
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: nextcloud
+      restartPolicy: Always
+      volumes:
+        - name: nextcloud
+          persistentVolumeClaim:
+            claimName: nextcloud
