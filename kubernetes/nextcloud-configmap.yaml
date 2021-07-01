@@ -1,8 +1,8 @@
-apiVersion: v1
-kind: ConfigMap
-data:
+apiVersion: v1 # Version der API
+kind: ConfigMap # Angabe des Objekttyps
+data: # Angabe der Umgebungsvariablen duer die Nextcloud
   NEXTCLOUD_ADMIN_PASSWORD: nextcloud-admin-password
   NEXTCLOUD_ADMIN_USER: admin
   NEXTCLOUD_TRUSTED_DOMAINS: '192.168.49.2'
 metadata:
-  name: nextcloud-env
+  name: nextcloud-env # die Verwendete Enviroment Datei

@@ -1,16 +1,17 @@
-apiVersion: v1
-kind: Service
+apiVersion: v1 # Version der API
+kind: Service # Service Objekttyp
 metadata:
   labels:
-    service: nextcloud
-  name: nextcloud
+    service: nextcloud # Name des Service
+  name: nextcloud # Name
 spec:
-  ports:
+  ports: # Angabe der verwendeten Ports
     - name: "http"
       port: 80
       targetPort: 80
     - name: "https"
       port: 443
       targetPort: 443
+      # Hier auch zwei Ports, da Nextcloud auf beiden erreichbar sein soll
   selector:
-    service: nextcloud
+    service: nextcloud # Name des Service
