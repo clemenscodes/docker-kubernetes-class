@@ -1,25 +1,27 @@
-apiVersion: networking.k8s.io/v1 
-kind: Ingress
+# Die ingress-service Datei dient dazu http-Routen von ausserhalb des Clusters zu Diensten innerhalb des Clusters zur Verfuegung zu stellen
+# Das Routing des Datenverkehrs wird durch die unter rules: angegebnen Regeln gesteuert.
+apiVersion: networking.k8s.io/v1 # Version der API
+kind: Ingress # Ingress Objekttyp, steht Aufgrund der Angabe der API Version
 metadata:
-  name: ingress-service
+  name: ingress-service # Angabe des Namens der Datei
   annotations:
-    kubernetes.io/ingress.class: 'nginx'
-    nginx.ingress.kubernetes.io/use-regex: 'true'
+    kubernetes.io/ingress.class: 'nginx' # Sagt es soll nginx ingress nutzen
+    nginx.ingress.kubernetes.io/use-regex: 'true' # Erlaubt die Verwendung von regulaeren Ausdruecken bei Pfadangaben wo die Anfrage hingeleitet werden soll 
 spec:
-  rules:
+  rules: # Regeln wo HTTP Anfragen hingeleitet werden
     - http:
         paths:
-          - path: /?(.*)
-            pathType: Prefix
-            backend:
+          - path: /?(.*) # Alle HTTP Anfragen
+            pathType: Prefix # Alle Anfragen mit diesem Path werden gematcht
+            backend: # Gibt an wo die Anfragen hingehen
               service:
-                name: nextcloud 
+                name: nextcloud # Genaue Angabe, dass die Anfragen an diesen Service gehen
                 port: 
-                  number: 80
-          - path: /?(.*)
-            pathType: Prefix
-            backend:
+                  number: 80 # Nocheinmal genauer auf welchen Port des Service die Anfragen geleitet werden
+          - path: /?(.*) # Alle HTTP Anfragen
+            pathType: Prefix # Alle Anfragen mit diesem Path werden gematcht
+            backend:  # Gibt an wo die Anfragen hingehen
               service:
-                name: nextcloud 
+                name: nextcloud # Genaue Angabe, dass die Anfragen an diesen Service gehen
                 port: 
-                  number: 443 
+                  number: 443 # Nocheinmal genauer auf welchen Port des Service die Anfragen geleitet werden

@@ -1,10 +1,10 @@
-apiVersion: v1
-kind: ConfigMap
-data:
-  MYSQL_DATABASE: nextcloud-db
-  MYSQL_HOST: mariadb
-  MYSQL_PASSWORD: my-nextcloud-db-pw
-  MYSQL_ROOT_PASSWORD: my-secret-pw
-  MYSQL_USER: nextcloud
-metadata:
-  name: mariadb-env
+apiVersion: v1 # Version der verwendeten API
+kind: ConfigMap # Ein Objekttyp der Umgebungsvariablen speichert
+data: # Die benoetigten Daten
+  MYSQL_DATABASE: nextcloud-db # Name der Datenbank
+  MYSQL_HOST: mariadb # Name des Hosts
+  MYSQL_PASSWORD: my-nextcloud-db-pw # Datenbank Passwort
+  MYSQL_ROOT_PASSWORD: my-secret-pw # Root Passwort der Datenbank
+  MYSQL_USER: nextcloud # Username der Datenbank
+metadata: 
+  name: mariadb-env # Name der ConfigMap, damit in der mariadb-deployment darauf zugegriffen werden kann

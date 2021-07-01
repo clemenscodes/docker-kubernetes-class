@@ -1,28 +1,28 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1 # Angabe der verwendet Version
+kind: Deployment # Gibt an das es sich um eine Deployment Datei handelt
 metadata:
-  labels:
-    service: mariadb
+  labels: # Dienen als Bennenung fuer die Pods
+    service: mariadb 
   name: mariadb
 spec:
-  replicas: 1
+  replicas: 1 # Anzahl der laufenden Replicas (Jedes Replica ist eigenstaendig)
   selector:
     matchLabels:
       service: mariadb
   strategy:
-    type: Recreate
+    type: Recreate # Falls etwas schief geht wird der Pod anhand der angegebnen Regeln neu erstellt
   template:
     metadata:
       labels:
         service: mariadb
     spec:
       containers:
-        - env:
-            - name: MYSQL_DATABASE
+        - env: # Gibt an welche Umgebungsvariablen bei Start des Containers gelten. Die Daten stehen in den entsprechenden Enviroment Daten in ../env/
+            - name: MYSQL_DATABASE # Name Der Umgebungsvariable
               valueFrom:
-                configMapKeyRef:
+                configMapKeyRef: # Name der Umgebungsvariablen in der Enviroment Datei
                   key: MYSQL_DATABASE
-                  name: mariadb-env
+                  name: mariadb-env # Enviroment Datei
             - name: MYSQL_HOST
               valueFrom:
                 configMapKeyRef:
@@ -46,15 +46,15 @@ spec:
           image: mariadb
           name: mariadb-gcc
           ports:
-            - containerPort: 3306
+            - containerPort: 3306 # Port des Containers
           resources:
-            limits:
+            limits: #Limit Angabe ueber verfuegbaren Speicher und maximale CPU Zuteilung
               memory: "128Mi" 
               cpu: "500m"
-          volumeMounts:
+          volumeMounts: # Angabe der zu verwendeten Volumes Pfad und Name
             - mountPath: /var/lib/mysql
               name: mariadb
-      restartPolicy: Always
+      restartPolicy: Always # Falls der Container abstuertzt wird er immer neugestartet
       volumes:
         - name: mariadb
           persistentVolumeClaim:
