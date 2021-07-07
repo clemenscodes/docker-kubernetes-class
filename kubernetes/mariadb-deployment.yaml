@@ -4,12 +4,12 @@ metadata:
   labels: # Dienen als Bennenung fuer die Pods
     service: mariadb 
   name: mariadb
-spec:
+spec: # Spezifiziert das gewünschte Verhalten des Deployments
   replicas: 1 # Anzahl der laufenden Replicas (Jedes Replica ist eigenstaendig)
   selector:
     matchLabels:
       service: mariadb
-  strategy:
+  strategy: # Die Strategie mit der alte Pods durch neue ersetzt werden
     type: Recreate # Falls etwas schief geht wird der Pod anhand der angegebnen Regeln neu erstellt
   template:
     metadata:
@@ -18,11 +18,11 @@ spec:
     spec:
       containers:
         - env: # Gibt an welche Umgebungsvariablen bei Start des Containers gelten. Die Daten stehen in den entsprechenden Enviroment Daten in ../env/
-            - name: MYSQL_DATABASE # Name Der Umgebungsvariable
+            - name: MYSQL_DATABASE 
               valueFrom:
-                configMapKeyRef: # Name der Umgebungsvariablen in der Enviroment Datei
+                configMapKeyRef: 
                   key: MYSQL_DATABASE
-                  name: mariadb-env # Enviroment Datei
+                  name: mariadb-env 
             - name: MYSQL_HOST
               valueFrom:
                 configMapKeyRef:
@@ -48,14 +48,14 @@ spec:
           ports:
             - containerPort: 3306 # Port des Containers
           resources:
-            limits: #Limit Angabe ueber verfuegbaren Speicher und maximale CPU Zuteilung
+            limits: # Limit Angabe ueber verfuegbaren Speicher und maximale CPU Zuteilung
               memory: "128Mi" 
               cpu: "500m"
           volumeMounts: # Angabe der zu verwendeten Volumes Pfad und Name
             - mountPath: /var/lib/mysql
               name: mariadb
       restartPolicy: Always # Falls der Container abstuertzt wird er immer neugestartet
-      volumes:
+      volumes: # Liste der Volumen, die gemountet werden
         - name: mariadb
           persistentVolumeClaim:
             claimName: mariadb

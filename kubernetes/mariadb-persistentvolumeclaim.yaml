@@ -7,6 +7,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce # Kein anderer Pod kann auf das Volume Zugreifen
-  resources:
-    requests:
+  resources: # Die minimalen Ressourcen, die das Volumen haben soll
+    requests: # Fragt die Ressourcen an
       storage: 100Mi # Angabe der Speichergroesse

@@ -4,12 +4,12 @@ metadata:
   labels: # Dienen als Bennenung fuer die Pods
     service: nextcloud
   name: nextcloud
-spec:
+spec: # Spezifiziert das gewünschte Verhalten des Deployments
   replicas: 1 # Anzahl der laufenden Replicas (Jedes Replica ist eigenstaendig)
   selector:
     matchLabels:
       service: nextcloud
-  strategy:
+  strategy: # Die Strategie mit der alte Pods durch neue ersetzt werden
     type: Recreate # Falls etwas schief geht wird der Pod anhand der angegebnen Regeln neu erstellt
   template:
     metadata:
@@ -20,9 +20,9 @@ spec:
         - env: # Gibt an welche Umgebungsvariablen bei Start des Containers gelten. Die Daten stehen in den entsprechenden Enviroment Daten in ../env/
             - name: MYSQL_DATABASE
               valueFrom:
-                configMapKeyRef: # Name der Umgebungsvariablen in der Enviroment Datei
+                configMapKeyRef: 
                   key: MYSQL_DATABASE
-                  name: mariadb-env # Enviroment Datei
+                  name: mariadb-env 
             - name: MYSQL_HOST
               valueFrom:
                 configMapKeyRef:
@@ -72,7 +72,7 @@ spec:
             - mountPath: /var/www/html
               name: nextcloud
       restartPolicy: Always # Falls der Container abstuertzt wird er immer neugestartet, nach hier angegebenen Regeln 
-      volumes:
+      volumes: # Liste der Volumen, die gemountet werden
         - name: nextcloud
           persistentVolumeClaim:
             claimName: nextcloud
