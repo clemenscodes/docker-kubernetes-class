@@ -6,7 +6,7 @@ metadata:
   name: mariadb # Name
 spec:
   ports: # Angabe der verwendeten Ports
-    - name: "http"
+    - name: "http" # Name des Ports im Service
       port: 3306 
       targetPort: 3306
   selector:

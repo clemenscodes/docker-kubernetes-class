@@ -17,7 +17,7 @@ spec:
               service:
                 name: nextcloud # Genaue Angabe, dass die Anfragen an diesen Service gehen
                 port: 
-                  number: 80 # Nocheinmal genauer auf welchen Port des Service die Anfragen geleitet werden
+                  number: 80 # Noch einmal genauer auf welchen Port des Service die Anfragen geleitet werden
           - path: /?(.*) # Alle HTTP Anfragen
             pathType: Prefix # Alle Anfragen mit diesem Path werden gematcht
             backend:  # Gibt an wo die Anfragen hingehen
